@@ -1,6 +1,6 @@
 # SNDGMAIL
 
-## Un comando para enviar correos electróicos desde el IBMi, usando python.
+## Un comando para enviar correos electrónicos desde el IBMi, usando python.
 
 ### Entorno necesario.
 
@@ -28,8 +28,8 @@ el desarrollo de este proyecto.
 El editor vim es un editor muy potente, pero requiere de un aprendizaje.
 Esta serie no cubrirá un tutorial acerca de como utilizarlo, para ello existen muchos y muy buenos
 tutoriales en la red.
-Si bien vim pose una curva de aprendizaje un poco dura, es muy recomendable aprenderlo, vim estÃ¡presente 
-en infinidad de equipos desde un router, cisco un teléfono android, y ahora tambíen en nuestro equipo
+Si bien vim pose una curva de aprendizaje un poco dura, es muy recomendable aprenderlo, vim está presente 
+en infinidad de equipos desde un router cisco ,un teléfono android, y ahora también en nuestro equipo
 favorito, el IBMi.
 Para aprender a utilizar vim, vim mismo incluye un tutorial al cual se accede con el comando bash:
 
@@ -37,14 +37,14 @@ Para aprender a utilizar vim, vim mismo incluye un tutorial al cual se accede co
 $ vimtutor
 ```
 
-Les recomiendo realizarlo, toda el código de esta serie se escribirá en vim corriendo en IBMi, 
+Les recomiendo realizarlo, toda el cóigo de esta serie se escribirá en vim corriendo en IBMi, 
 incluyendo el presente texto.
 
 Vim es un editor muy configurable y muy extensible por medios de plugins, nuestro interes es instalar
 el plugin [Syntax files for Free-Form ILE RPG ](https://github.com/andlrc/rpgle.vim)
 el cual añade soporte a vim para **Free RPG**.
 
-Para instalar los plugins en vim, hay que instalar código vim en el directorio donde vim almacena
+Para instalar los plugins en vim, hay que instalar cÃ³digo vim en el directorio donde vim almacena
 sus configuraciones (sí, vim incluye su propio interprete y es posible proogramarlo para hacer 
 muchas cosas).
 Para simplificar la tarea de instalar un plugin, hay un plugin llamado **vundle** que es un administrador
@@ -55,7 +55,7 @@ Vamos a instalar vundle en nuestro vim, para ello hay que ejecutar los siguiente
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-Una vez echo lo anterior, deberemos editar el archivo de configuraion de vim (usando vim, por
+Una vez echo lo anterior, deberemos editar el archivo de configuración de vim (usando vim, por
 supuesto :-) ) para agregar el siguiente código:
 :
 ```vim
@@ -81,11 +81,11 @@ filetype plugin indent on    " required
 Luego arrancamos vim y corremos: **:PluginsInstall**.
 
 Con estos pasos tendremos resaltado de sintaxis cuando escribamos
-el cóigo **Free RPG** de nuestro proyecto.
+el código **Free RPG** de nuestro proyecto.
  
-### Parte 2-El cóigo Python
+### Parte 2-El código Python
 
-El códio Python que utilizaremos para enviar los correos es el siguiente:
+El código Python que utilizaremos para enviar los correos es el siguiente:
 
 ```python
 
@@ -163,13 +163,14 @@ if __name__ == "__main__":
             subject,        \
             body,           \
             attach_full_path)
-
-El código aterior puede ejecutarse desde bash mediant:e
+```
+El código aterior puede ejecutarse desde bash mediante:
 
 ```bash
-python2 sndgmail.py "correodestino@destino.com" "correoorigen@gmail.com" "contrase�a" "subject" "body" "attach"
+python2 sndgmail.py "correodestino@destino.com" "correoorigen@gmail.com" "contraseña" "subject" "body" "attach"
 ```
 En los próximos capítulos veremos como llamar a este programa desdel entorno habitual de IBMi mediante 
-un comando creado al efecto.
+un comando de IBMi creado al efecto, de manera tal que podamos enviar un correo mediante gmail desde un programa RPG o CL.
+
 
 
