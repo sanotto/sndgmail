@@ -1,6 +1,6 @@
 # SNDGMAIL
 
-## Un comando para enviar correos electrÃnicos desde el IBMi, usando python.
+## Un comando para enviar correos electróicos desde el IBMi, usando python.
 
 ### Entorno necesario.
 
