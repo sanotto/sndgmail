@@ -85,85 +85,9 @@ el código **Free RPG** de nuestro proyecto.
  
 ### Parte 2-El código Python
 
-El código Python que utilizaremos para enviar los correos es el siguiente:
+El código Python que utilizaremos para enviar los correo está cotenido
+en el archivo sndgmail.py.
 
-```python
-
-import sys
-import os
-import os.path
-import datetime
-import tempfile
-import re
-import shutil
-import smtplib
-
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
-from email.MIMEBase import MIMEBase
-from email import encoders
-
-#--------------------------------------------------------------------------
-# send_mail: Enva un email usando SMTP, usando los siguientes paetros:
-#
-#            -toaddr   Direccin a la que debe enviarse el correo
-#            -fromaddr Desde que direccin debe enviarse
-#            -password Contrasa de la diren desde
-#            -subject  Tema del correo
-#            -body     Cuerpo del correo
-#            -attachfp Path del archivo attachado
-#--------------------------------------------------------------------------
-def send_email(toaddr,
-               fromaddr,
-               password,
-               subject,
-               body='',
-               attachfp='',
-               ):
-  try:
-     msg = MIMEMultipart()
-     msg['From'] = fromaddr
-     msg['To'] = toaddr
-     msg['Subject'] = subject
-     msg.attach(MIMEText(body, 'plain'))
-     if attachfp <> '':
-       part = MIMEBase('application', "octet-stream")
-       part.set_payload( open(file,"rb").read() )
-       Encoders.encode_base64(part)
-       part.add_header('Content-Disposition', 'attachment; filename="%s"'
-                       % os.path.basename(attachfp))
-       msg.attach(part)
-
-     server = smtplib.SMTP('smtp.gmail.com', 587)
-     server.starttls()
-     server.login(fromaddr, password)
-     text = msg.as_string()
-     server.sendmail(fromaddr, toaddr, text)
-     server.quit()
-  except:   
-     pass 
-#--------------------------------------------------------------------------
-# Punto de Entrada del Programa
-#--------------------------------------------------------------------------
-if __name__ == "__main__":
- toaddr = sys.argv[1]
- fromaddr = sys.argv[2]
- password = sys.argv[3]
- subject = sys.argv[4]
- body=''
- if len(sys.argv) >= 5:
-  body = sys.argv[4]
- attach_full_path=''
- if len(sys.argv) >= 6:
-  attach_full_path = sys.argv[5]
-
- send_email(toaddr,         \
-            fromaddr,       \
-            password,       \
-            subject,        \
-            body,           \
-            attach_full_path)
-```
 El código aterior puede ejecutarse desde bash mediante:
 
 ```bash
@@ -174,5 +98,17 @@ un comando de IBMi creado al efecto, de manera tal que podamos enviar un correo 
 **NOTA IMPORTANTE**
 Para que el programa anterior funcione, es necesario habilita el acceso de aplicaciones menos seguras de gmail, para
 ello les recomiendo leer el siguiente enlace [Cómo permitir que apps menos seguras accedan a tu cuenta](https://support.google.com/accounts/answer/6010255)
+
+### Parte 3- El código Free RPG.
+El código **Fre RPG** se encaga de armar la invocación a PYTHONy ejecutar el código erior.
+El código rpgle puede compilarse directamente desde bash con l instrucción:
+
+```bash
+system "CRTBNDRPG PGM(QGPL/*CTLSPEC) SRCSTMF('/home/sotton/sndgmail/sndgmail.rpgle')" | view -
+```
+
+La ultima parte ** | view - ** redirige la salida (el listado de compilaci�n) hacia el utilitario
+view (vim en modo readonly), el guión al final es importnte pues indica a view que lea la salida
+standard para obtner los datos a mostrar.
 
 
