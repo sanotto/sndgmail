@@ -18,14 +18,10 @@ para los interesados, la punta del ovillo se encuentra en:
 
 [How to obtain the new Open Source for IBM i Product - 5733OPS](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM%20i%20Technology%20Updates/page/How%20to%20obtain%20the%20new%20Open%20Source%20for%20IBM%20i%20Product%20-%205733OPS)
 
-### Como está estructurado este proyecto/tutorial.
-La idea es escibir una serie de entregas donde se describe paso a paso la realización del proyecto.
-El proyecto será alojado en gitlab y se creará una rama para cada entrega/capítulo de la serie.
-
 ### Agradecimientos
 
 Quiero agradecer a Diego Kesselman de [Esselware](http://esselware.com.mx/) por poner a disposición un equipo para
-el desarrollo de esta Serie.
+el desarrollo de este proyecto.
 
 ### Parte 1-Personalizando el editor vim.
 
