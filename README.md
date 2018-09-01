@@ -5,7 +5,7 @@
 ### Entorno necesario.
 
 Para realizar este proyecto es necesario tener instaladas las herramientas open source
-provistas para el IBMi, en particular este tutorila utilizarán las siguientes herramientas:
+provistas para el IBMi, en particular este tutorial utilizará las siguientes herramientas:
 
 * Python 
 * git
@@ -20,13 +20,13 @@ para los interesados, la punta del ovillo se encuentra en:
 
 ### Agradecimientos
 
-Quiero agradecer a Diego Kesselman de [Esselware](http://esselware.com.mx/) por poner a disposició un equipo para
+Quiero agradecer a Diego Kesselman de [Esselware](http://esselware.com.mx/) por poner a disposición un equipo para
 el desarrollo de este proyecto.
 
 ### Parte 1-Personalizando el editor vim.
 
 El editor vim es un editor muy potente, pero requiere de un aprendizaje.
-Esta serie no cubrirÃ¡ un tutorial acerca de como utilizarlo, para ello existen muchos y muy buenos
+Esta serie no cubrirá un tutorial acerca de como utilizarlo, para ello existen muchos y muy buenos
 tutoriales en la red.
 Si bien vim pose una curva de aprendizaje un poco dura, es muy recomendable aprenderlo, vim está presente 
 en infinidad de equipos desde un router cisco ,un teléfono android, y ahora tambiénn en nuestro equipo
@@ -37,7 +37,7 @@ Para aprender a utilizar vim, vim mismo incluye un tutorial al cual se accede co
 $ vimtutor
 ```
 
-Les recomiendo realizarlo, toda el código de esta serie se escribirá en vim corriendo en IBMi, 
+Les recomiendo realizarlo, todo el código de esta serie se escribirá en vim corriendo en IBMi, 
 incluyendo el presente texto.
 
 Vim es un editor muy configurable y muy extensible por medios de plugins, nuestro interes es instalar
@@ -86,7 +86,7 @@ el código **Free RPG** de nuestro proyecto.
 ### Parte 2-El código Python
 
 El cóigo Python que utilizaremos para enviar los correo está contenido
-en el archivo sndgmail.py.
+en el archivo **sndgmail.py** almacenado en nuestro directorio de trabajo en el IFS.
 
 El código aterior puede ejecutarse desde bash mediante:
 
@@ -96,7 +96,7 @@ python2 sndgmail.py "correodestino@destino.com" "correoorigen@gmail.com" "contra
 En los proximos capítulos veremos como llamar a este programa desdel entorno habitual de IBMi mediante 
 un comando de IBMi creado al efecto, de manera tal que podamos enviar un correo mediante gmail desde un programa RPG o CL.
 **NOTA IMPORTANTE**
-Para que el programa anterior funcione, es necesario habilita el acceso de aplicaciones menos seguras de gmail, para
+Para que el programa anterior funcione, es necesario habilitar el acceso de aplicaciones menos seguras de gmail, para
 ello les recomiendo leer el siguiente enlace [Cómo permitir que apps menos seguras accedan a tu cuenta](https://support.google.com/accounts/answer/6010255)
 
 ### Parte 3- El código Free RPG.
