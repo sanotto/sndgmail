@@ -171,6 +171,8 @@ python2 sndgmail.py "correodestino@destino.com" "correoorigen@gmail.com" "contra
 ```
 En los próximos capítulos veremos como llamar a este programa desdel entorno habitual de IBMi mediante 
 un comando de IBMi creado al efecto, de manera tal que podamos enviar un correo mediante gmail desde un programa RPG o CL.
-
+**NOTA IMPORTANTE**
+Para que el programa anterior funcione, es necesario habilita el acceso de aplicaciones menos seguras de gmail, para
+ello les recomiendo leer el siguiente enlace [Cómo permitir que apps menos seguras accedan a tu cuenta](https://support.google.com/accounts/answer/6010255)
 
 
