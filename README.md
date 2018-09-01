@@ -111,4 +111,48 @@ La ultima parte ** | view - ** redirige la salida (el listado de compilaci�n) ha
 view (vim en modo readonly), el guión al final es importnte pues indica a view que lea la salida
 standard para obtner los datos a mostrar.
 
+### Parte 4-El area de datos con parámetros.
+
+El comando almacenarála cuenta de gmail y su clave en un area de datos de manera tal que no sea
+necesario ingresar estos datos cada vez que necesitemos enviar un mail.
+Como medida de seguridad, se puede poner *EXCLUDE al area de datos y dar autorización adoptada
+al programa RPG, si se considera necesario.
+
+Podemos crear el area de datos directamet desde bash con :
+
+```bash
+system "DLTDTAARA QGPL/GMAILPARAM"
+system "CRTDTAARA DTAARA(QGPL/GMAILPARAM) TYPE(*CHAR) LEN(300)"
+
+
+system "CHGDTAARA DTAARA(GMAILPARAM (001 100)) VALUE('/home/sndgmail')             " 
+system "CHGDTAARA DTAARA(GMAILPARAM (101 100)) VALUE('account@gmail.com')          " 
+system "CHGDTAARA DTAARA(GMAILPARAM (201 100)) VALUE('password')                   " 
+```
+
+Los comando anteriores han sido reunidos en un pequeño script bash llamado**crtdtaara_gmailparam.sh*
+, el mismo puede ejecutarse con:
+
+```bash
+source crtdtaara_gmailparam.sh 
+```
+El mandato bash **source** ejecuta un script de código bash.
+
+
+### Parte 5-Crear el comando.
+
+A diferencia de un programa RPG el mandato CRTCMD no permite compilar tomando un fuente
+desde el IFS. por ello para compilar el comando desde nuestro proyecto sera necesario 
+en primer lugar llevar nuestro fuente a un PF-SRC, esto puede realizarse directamente
+desde bash mediante:
+
+```bash
+system "CPYFRMSTMF FROMSTMF\(\'/home/sndgmail/bin/sndgmai.cmd\'\) TOMBR\(\'/QSYS.LIB/QGPL.LIB/QCMDSRC.FILE/SNDGMAIL.MBR\'\) MBROPT\(*REPLACE\)"                         
+system "CRTCMD CMD(QGPL/SNDGMAIL) PGM(QGPL/SNDGMAIL)  SRCFILE(QGPL/QCMDSRC) "  
+```
+estas instrucciones se han reunido en el script bash llamado **crtcmd_sndgmail.sh**, el mismo puede ejecutarse mediante:
+```bash
+source crtcmd_sndgmail.sh 
+```
+
 
